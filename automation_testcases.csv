@@ -1,0 +1,31 @@
+TestID,Module,Type,Feature,TestScenario,ExpectedResult,Priority
+TC_001,Auth,Positive,Login,Login with correct Admin credentials,User redirected to Admin Dashboard,High
+TC_002,Auth,Positive,Login,Login with correct Waiter credentials,User redirected to Floor Map,High
+TC_003,Auth,Negative,Login,Login with incorrect password,Error message "Invalid login credentials" shown,High
+TC_004,Auth,Negative,Login,Login with non-existent username,Error message "Invalid login credentials" shown,High
+TC_005,Auth,Negative,Access,Waiter trying to access Admin Dashboard,Admin view remains hidden or unauthorized,High
+TC_006,Floor,Positive,Seat Status,Select empty table and add items,Table status changes to Occupied (Red),Medium
+TC_007,Menu,Positive,Variants,Add Half portion of item with inventory,Stock count reduced by 0.5 units,High
+TC_008,Menu,Positive,Variants,Add Quarter portion of item with inventory,Stock count reduced by 0.25 units,High
+TC_009,Menu,Positive,Inventory,Add item till stock count reaches zero,Item marked as SOLD OUT and disabled,High
+TC_010,Menu,Negative,Inventory,Try adding more than available stock to cart,Alert "Out of Stock" prevents adding,High
+TC_011,Menu,Negative,Input,Enter zero or negative price for menu item,Validation error or blocked submission,Medium
+TC_012,Menu,Positive,Notes,Add special note to order item,Note visible in KDS and Admin order view,Medium
+TC_013,Menu,Edge,Notes,Add extremely long note (200+ chars),Note wraps correctly and is readable in KDS,Low
+TC_014,Parcel,Positive,Multi-Parcel,Start two separate parcels for Table 0,Two distinct Parcel IDs (1 and 2) created,High
+TC_015,Parcel,Positive,Parcel Sync,Close shop and reopen,Parcel numbering resets to #1 for new orders,Medium
+TC_016,Parcel,Negative,Selection,Cancel out of Parcel Management modal,User returned to floor map without creating order,Medium
+TC_017,KDS,Positive,Order Sync,Place new order as waiter,Order card appears in KDS in real-time,High
+TC_018,KDS,Positive,Item Status,Mark single item as Served in KDS,Item status updates to Served in Waiter/Admin view,High
+TC_019,KDS,Positive,Order Completion,Mark all items in a card as served,Entire order card is cleared from KDS,Medium
+TC_020,Admin,Positive,Staff,Admin creates a new Kitchen user,User can log in and see only Kitchen View,Medium
+TC_021,Admin,Negative,Staff,Register with an existing username,Error "Username already taken" shown,High
+TC_022,Inventory,Positive,Restocking,Cancel order with tracked items,Stock count increased by original order quantity,High
+TC_023,Inventory,Positive,Restocking,Remove a single item from an active order,Item stock is returned based on its weight,High
+TC_024,Billing,Positive,Total Calc,Add items with 5% tax rate,Final total matches (Subtotal * 1.05),High
+TC_025,Billing,Positive,Checkout,Mark order as Paid,Order status changes to 'paid' and seat becomes 'available',High
+TC_026,Shop,Negative,Status,Try placing order when shop is closed,Alert "Shop Closed" prevents order placement,High
+TC_027,System,Negative,Connectivity,Try placing order with No Internet,App shows error or retry logic for database failure,Medium
+TC_028,Menu,Positive,Editing,Admin updates price of an item,Updated price reflects immediately in menu,Medium
+TC_029,Menu,Negative,Deletion,Delete category with active menu items,System prevents deletion or handles orphaned items,Medium
+TC_030,Admin,Positive,Reports,View daily sales report,Total revenue accurately sums completed orders,Medium
